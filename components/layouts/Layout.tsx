@@ -30,7 +30,7 @@ export const Layout: FC<Props> = ({ children, title }) => {
                 <meta name="keywords" content={`${title}, pokemon, app, nextjs, typescript, react, nextui`} />
             </Head>
 
-            <Navbar isBordered variant='sticky'>
+            <Navbar isCompact isBordered variant='sticky' maxWidth="fluid">
                 <Navbar.Brand>
                     <PokemonLogo />
                 </Navbar.Brand>
