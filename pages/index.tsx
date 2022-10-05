@@ -9,8 +9,6 @@ interface Props {
   pokemons: SmallPokemon[];
 }
 
-// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${item.id}.svg
-
 const Home: NextPage<Props> = (props) => {
   const title = "Listado de Pokemons";
 

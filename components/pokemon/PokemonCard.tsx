@@ -17,7 +17,7 @@ const PokemonCard: FC<Props> = ({ pokemon }) => {
 
   return (
     <Grid xs={6} sm={2} key={pokemon.id}>
-      <Card isHoverable isPressable onClick={onClick}>
+      <Card isHoverable isPressable onPress={onClick}>
         <Card.Body css={{ p: 0 }}>
           <Card.Image
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}

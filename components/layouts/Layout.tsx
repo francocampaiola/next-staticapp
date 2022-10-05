@@ -3,15 +3,16 @@ import { FC } from 'react';
 
 // Importaciones de Next
 import Head from 'next/head';
+import NextLink from 'next/link';
 
 // Importaciones de NextUI
-import { Navbar, Button } from '@nextui-org/react';
+import { Navbar, Button, Link } from '@nextui-org/react';
 
 // Importaciones locales
 import PokemonLogo from '../ui/PokemonLogo';
 
 // Importaciones de Iconos
-import { Heart } from 'react-iconly'
+import { Heart } from 'react-iconly';
 
 // Tipado de las props
 interface Props {
@@ -32,14 +33,22 @@ export const Layout: FC<Props> = ({ children, title }) => {
 
             <Navbar isCompact isBordered variant='sticky' maxWidth="fluid">
                 <Navbar.Brand>
-                    <PokemonLogo />
+                    <NextLink href="/" passHref>
+                        <Link>
+                            <PokemonLogo />
+                        </Link>
+                    </NextLink>
                 </Navbar.Brand>
                 <Navbar.Content hideIn="xs">
-                    <Button 
-                    shadow color="primary" auto
-                    icon={<Heart size={'medium'}/>}>
-                        Favoritos
-                    </Button>
+                    <NextLink href="/favorites" passHref>
+                        <Link>
+                            <Button
+                                shadow color="primary" auto
+                                icon={<Heart size={'medium'} />}>
+                                Favoritos
+                            </Button>
+                        </Link>
+                    </NextLink>
                 </Navbar.Content>
             </Navbar>
 
