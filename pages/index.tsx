@@ -13,16 +13,15 @@ interface Props {
 
 const Home: NextPage<Props> = (props) => {
   const title = "Listado de Pokemons";
-  //console.log(props.pokemons);
 
   return (
     <Layout title={title}>
       <ul>
         <Grid.Container gap={2} justify="flex-start">
           {props.pokemons.map((item) => (
-            <PokemonCard pokemon={item} />
+            <PokemonCard pokemon={item} key={item.id} />
           ))}
-        </Grid.Container>*/
+        </Grid.Container>
       </ul>
     </Layout>
   );
