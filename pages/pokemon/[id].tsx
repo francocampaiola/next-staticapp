@@ -1,45 +1,44 @@
 import next, { NextPage, GetStaticProps, GetStaticPaths } from 'next';
-import { useRouter } from 'next/router'
+import { pokeApi } from '../../api';
 import { Layout } from '../../components/layouts';
+import { Pokemon } from '../../interfaces';
 
 interface Props {
-  id: string,
-  name: string
+  pokemon: Pokemon
 }
 
-const PokemonPage: NextPage<Props> = ({id, name}) => {
+const PokemonPage: NextPage<Props> = ({ pokemon }) => {
 
-  const router = useRouter();
-  console.log(router.query)
+  console.log(pokemon)
 
   return (
-    <Layout title={`Pokemon ID ${router.query.id}`}>
-      <div>PokemonPage</div>
-      <div>ID: {id}</div>
-      <div>Name: {name}</div>
+    <Layout>
+      {pokemon.name}
     </Layout>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
+  const pokemonList = [...Array(151)].map((value, index) => `${index + 1}`);
+
   return {
-    paths: [
-      {
-        params: {
-          
-        }
-      }
-    ],
+    paths: pokemonList.map(id => ({
+      params: { id }
+    })),
     fallback: false
   }
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+
+  const { id } = params as { id: string };
+
+  const { data } = await pokeApi.get<Pokemon>(`/pokemon/${ id }`);
 
   return {
     props: {
-
+      pokemon: data
     },
   };
 };
