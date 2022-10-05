@@ -6,7 +6,7 @@ import Head from 'next/head';
 import NextLink from 'next/link';
 
 // Importaciones de NextUI
-import { Navbar, Button, Link } from '@nextui-org/react';
+import { Navbar, Text, Link } from '@nextui-org/react';
 
 // Importaciones locales
 import PokemonLogo from '../ui/PokemonLogo';
@@ -42,11 +42,9 @@ export const Layout: FC<Props> = ({ children, title }) => {
                 <Navbar.Content hideIn="xs">
                     <NextLink href="/favorites" passHref>
                         <Link>
-                            <Button
-                                shadow color="primary" auto
-                                icon={<Heart size={'medium'} />}>
+                            <Text>
                                 Favoritos
-                            </Button>
+                            </Text>
                         </Link>
                     </NextLink>
                 </Navbar.Content>
