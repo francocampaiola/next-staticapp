@@ -1,6 +1,5 @@
 import { Image } from "@nextui-org/react"
 
-
 const PokemonLogo = () => {
   return (
     <Image

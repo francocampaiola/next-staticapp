@@ -4,12 +4,18 @@ import Image from 'next/image';
 import { pokeApi } from '../../api';
 import { Layout } from '../../components/layouts';
 import { Pokemon } from '../../interfaces';
+import localFavorites from '../../utils/localFavorites';
 
 interface Props {
   pokemon: Pokemon
 }
 
 const PokemonPage: NextPage<Props> = ({ pokemon }) => {
+
+  const onToggleFavorite = () => {
+    localFavorites.toggleFavorite(pokemon.id);
+  }
+
   return (
     <Layout title={`${pokemon.name[0].toUpperCase()}${pokemon.name.substring(1)} - ID #${pokemon.id}`}>
       <Grid.Container css={{ marginTop: '5px' }} gap={2}>
@@ -32,6 +38,7 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
               <Button
                 color="gradient"
                 ghost
+                onClick={onToggleFavorite}
               >
                 Guardar en favoritos
               </Button>

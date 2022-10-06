@@ -11,9 +11,6 @@ import { Navbar, Text, Link } from '@nextui-org/react';
 // Importaciones locales
 import PokemonLogo from '../ui/PokemonLogo';
 
-// Importaciones de Iconos
-import { Heart } from 'react-iconly';
-
 // Tipado de las props
 interface Props {
     children: React.ReactNode;
