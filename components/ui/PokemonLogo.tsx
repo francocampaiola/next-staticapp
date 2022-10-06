@@ -9,3 +9,5 @@ export const PokemonLogo = () => {
     />
   )
 }
+
+export default PokemonLogo;

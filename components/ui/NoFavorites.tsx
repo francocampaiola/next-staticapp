@@ -23,3 +23,5 @@ export const NoFavorites = () => {
     </Container>
   )
 }
+
+export default NoFavorites;
