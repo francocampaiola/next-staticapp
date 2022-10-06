@@ -1,7 +1,6 @@
 import { Grid, Card } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import { FC } from "react"
-
 interface Props {
     pokemonId: number;
 }

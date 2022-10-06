@@ -6,6 +6,7 @@ import { pokeApi } from '../../api';
 import { Layout } from '../../components/layouts';
 import { Pokemon } from '../../interfaces';
 import localFavorites from '../../utils/localFavorites';
+import confetti from 'canvas-confetti'
 
 interface Props {
   pokemon: Pokemon
@@ -16,6 +17,19 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
   const onToggleFavorite = () => {
     localFavorites.toggleFavorite(pokemon.id);
     setIsInFavorites(!isInFavorites);
+
+    if (!isInFavorites) {
+      confetti({
+        zIndex: 999,
+        particleCount: 100,
+        spread: 160,
+        angle: -100,
+        origin: {
+          x: 1,
+          y: 0
+        }
+      })
+    }
   }
 
   const [isInFavorites, setIsInFavorites] = useState(localFavorites.existInFavorites(pokemon.id));
@@ -44,7 +58,7 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
                 ghost={!isInFavorites}
                 onPress={onToggleFavorite}
               >
-                { isInFavorites ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+                {isInFavorites ? 'Quitar de favoritos' : 'Agregar a favoritos'}
               </Button>
             </Card.Header>
             <Card.Body>
