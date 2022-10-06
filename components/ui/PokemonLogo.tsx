@@ -1,6 +1,6 @@
 import { Image } from "@nextui-org/react"
 
-const PokemonLogo = () => {
+export const PokemonLogo = () => {
   return (
     <Image
         src={'/pokeapi_logo.png'}
@@ -9,5 +9,3 @@ const PokemonLogo = () => {
     />
   )
 }
-
-export default PokemonLogo
