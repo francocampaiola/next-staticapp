@@ -17,6 +17,8 @@ interface Props {
     title?: string;
 }
 
+const origin = (typeof window === 'undefined') ? '' : window.location.origin;
+
 // Componente
 export const Layout: FC<Props> = ({ children, title }) => {
     return (
@@ -26,6 +28,9 @@ export const Layout: FC<Props> = ({ children, title }) => {
                 <meta name="description" content={`Information about ${title} pokemon`} />
                 <meta name="autor" content="Franco Campaiola" />
                 <meta name="keywords" content={`${title}, pokemon, app, nextjs, typescript, react, nextui`} />
+                <meta property='og:title' content={`Información sobre ${title}`}/>
+                <meta property='og:description' content={`Esta es la página sobre ${title}`} />
+                <meta property='og:image' content={`${origin}/img/banner.png`} />
             </Head>
 
             <Navbar isCompact isBordered variant='sticky' maxWidth="fluid">
