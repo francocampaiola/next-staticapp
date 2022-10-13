@@ -106,7 +106,8 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
     paths: pokemonList.map(id => ({
       params: { id }
     })),
-    fallback: false
+    fallback: false,
+    revalidate: 86400,
   }
 }
 
